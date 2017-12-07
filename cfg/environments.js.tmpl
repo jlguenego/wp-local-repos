@@ -1,0 +1,57 @@
+module.exports = {
+	// all deployment stuff (for gulp deploy)
+	// all the examples considere you are deploying on:
+	// http://www.yourdomain.tld/hello/world
+	deploy: {
+		// deployment parameters for gulp deploy.
+
+		// default: put the key of the default deployment.
+		default: 'deploy1',
+		deploy1: {
+			htaccess: {
+				// the url should end with a slash (/), ie:
+				// /hello/world/
+				rewriteBase: '/xxxx/xxxx/',
+			},
+			// the mysql of your webhoster on http://www.yourdomain.tld
+			mysql: {
+				database: 'xxxx',
+				username: 'xxxx',
+				password: 'xxxx',
+				hostname: 'xxxx',
+				prefix: 'xxxx_',
+			},
+			// the FTP of your webhoster on http://www.yourdomain.tld
+			ftp: {
+				host: 'ftp.xxxx.xxx',
+				user: 'xxxx',
+				pass: 'xxxx',
+				// the remotePath should not end with a slash (/), ie:
+				// www/hello/world
+				remotePath: 'xxx/xxxx/xxxx',
+			},
+			// the url should not end with a slash (/), ie:
+			// http://www.yourdomain.tld/hello/world
+			url: 'http://xxxx.xxx/xxxx/xxxx'
+		},
+	},
+	dev: {
+		default: 'dev1',
+		dev1: {
+			htaccess: {
+				rewriteBase: '/wp-local-repos/app/',
+			},
+			// the mysql of your local dev environment
+			// if you install by default you should have the settings below
+			mysql: {
+				database: 'wp-local-repos',
+				username: 'root',
+				password: '',
+				hostname: 'localhost',
+				prefix: 'wp_',
+			},
+			url: 'http://localhost/wp-local-repos/app',
+			blogname: 'Name of your site',
+		},
+	}
+};
